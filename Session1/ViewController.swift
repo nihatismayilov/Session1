@@ -9,66 +9,121 @@ import Foundation
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    private let vm = MainViewModel()
+    
+    private var mutableStringText = "text1"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         self.view.backgroundColor = .white
+        
+        print("Width: \(self.view.frame.width)")
+        print("Height: \(self.view.frame.height)")
         
         let label = UILabel()
         label.frame = CGRect.init(x: 100, y: 100, width: 100, height: 30)
         label.text = "Test, trial"
         label.textColor = .black
+        //self.view.addSubview(label)
         
-        self.view.addSubview(label)
+        self.mutableStringText = self.process()
+        self.mutableStringText = self.processAdd(self.mutableStringText)
         
-        task2()
+        var listIntegers = [1, 2, 3, 4, 5, 6]
+        
+        print(listIntegers)
+        
+        // forEach
+        var sum = 0
+        listIntegers.forEach { number in
+            sum += number
+        }
+        
+        // map
+        let listNumbersStruct = listIntegers.map { number in
+            return NumberStruct(displayTitle: "\(number)", value: number)
+        }
+        print(listNumbersStruct)
+        
+        // filter
+        let listNumberOdds = listIntegers.filter { number in
+            return number % 2 == 1
+        }
+        print(listNumberOdds)
+        
+        // reduce
+        let sumReduced = listIntegers.reduce(0) { partialResult, next in
+            partialResult + next
+        }
+        print(sumReduced)
+        
+        // complex
+        let sumReducedCollection = listIntegers.filter { number in
+            number >= 3
+        }.reduce([NumberStruct]()) { partialResult, number in
+            var lastArray = partialResult
+            lastArray.append(NumberStruct(displayTitle: "\(number)", value: number))
+            return lastArray
+        }
+        print(sumReduced)
+        
+        let instance = SingleStruct.shared
+        let sum5 = instance.add(2, 3)
+        
+        print("Unread notification count: \(instance.getUnreadNotification())")
+        instance.addUnreadNotifications(number: 4)
+        
+        print("Unread notification count: \(instance.getUnreadNotification())")
+        
+        let childInstance = ViewControllerChild()
+        print("Unread notification count: \(childInstance.checkUnreadNotificationSum())")
+        
+        instance.readAll()
+        print("Read all notifications")
+        
+        print("Unread notification count: \(instance.getUnreadNotification())")
+        print("Unread notification count: \(childInstance.checkUnreadNotificationSum())")
+        
+        
+        print("Builder")
+        let car = Car.Builder()
+            .setColor(.white)
+            .setFuelType(.petrol)
+            .setPassengerSize(5)
+            .build()
+        print(car.fuelType)
+        print(car.passengerSize)
+        print(car.color)
+        
+        print("Car Factory")
+        
+        let greenCar = CarFactory.build(fuelType: .diesel, color: .green)
+        
+        let cars = vm.getCars()
+        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        print(#function)
+    func process() -> String{
+        return "text2"
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        print(#function)
+    func processAdd(_ text: String) -> String{
+        return text + "1"
     }
-
+    
+    class ViewControllerChild {
+        
+        func checkUnreadNotificationSum() -> Int {
+            SingleStruct.shared.getUnreadNotification()
+        }
+        
+    }
+    
 }
 
-func task2() {
-    let bestFriend = "Chingiz"
-    print(bestFriend)
-
-    let myName = "Nihad"
-    let myAddress = "Bineqedi"
-
-    print(myName)
-    print(myAddress)
-
-    let randomNum = Int.random(in: 10...20)
-
-    print(Double(randomNum)/4)
-
-    let x = Int.random(in: 0...100)
-
-    print(x)
-
-    print("The number smaller by 22 is: \(x - 22)")
-    print("The number bigger by 22 is: \(x + 22)")
-
-    let reminder = x % 2
-
-    print("the reminder of the division by 2 iS \(reminder)")
-
-    let num1 = Int.random(in: 0...100)
-    let num2 = Int.random(in: 0...100)
-    let num3 = Int.random(in: 0...100)
-    let sum = num1 + num2 + num3
-
-    print("the sum of 3 random numbers is \(sum)")
-
+struct NumberStruct {
+    let displayTitle: String
+    let value: Int
 }
-

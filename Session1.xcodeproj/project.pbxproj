@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B86DDDA8280C425800ACB818 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DDDA7280C425700ACB818 /* MainViewModel.swift */; };
+		B86DDDAA280C427500ACB818 /* CarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86DDDA9280C427500ACB818 /* CarRepository.swift */; };
 		B8B7037F280187F200123416 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7037E280187F200123416 /* AppDelegate.swift */; };
 		B8B70386280187F200123416 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8B70384280187F200123416 /* Main.storyboard */; };
 		B8B70388280187F500123416 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8B70387280187F500123416 /* Assets.xcassets */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B86DDDA7280C425700ACB818 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		B86DDDA9280C427500ACB818 /* CarRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRepository.swift; sourceTree = "<group>"; };
 		B8B7037B280187F200123416 /* Session1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Session1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B7037E280187F200123416 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8B70382280187F200123416 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 				B8B70387280187F500123416 /* Assets.xcassets */,
 				B8B70389280187F500123416 /* LaunchScreen.storyboard */,
 				B8B7038C280187F500123416 /* Info.plist */,
+				B86DDDA7280C425700ACB818 /* MainViewModel.swift */,
+				B86DDDA9280C427500ACB818 /* CarRepository.swift */,
 			);
 			path = Session1;
 			sourceTree = "<group>";
@@ -135,8 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B86DDDAA280C427500ACB818 /* CarRepository.swift in Sources */,
 				B8B703922801A2E000123416 /* ViewController.swift in Sources */,
 				B8B7037F280187F200123416 /* AppDelegate.swift in Sources */,
+				B86DDDA8280C425800ACB818 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +291,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U243U99T75;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Session1/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -309,6 +318,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = U243U99T75;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Session1/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
